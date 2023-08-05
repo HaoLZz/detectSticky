@@ -6,13 +6,12 @@ const Container = styled.div`
   top: 75px;
   width: 50vw;
   margin: 0 auto;
-  background-color: beige;
+  background-color: ${(props) => (props.$isSticky ? "#BF4F74" : "beige")};
   text-align: center;
 `;
 
 const Carousel = styled.div`
   overflow: hidden;
-  background-color: aqua;
   margin-bottom: 2.5rem;
 `;
 const SliderContainer = styled.div`
@@ -41,7 +40,7 @@ const ImageWrapper = styled.div`
 
 const itemLength = 3;
 
-const CarouselSlider = () => {
+const CarouselSlider = ({ carouselRef, isSticky }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -53,7 +52,7 @@ const CarouselSlider = () => {
   };
 
   return (
-    <Container>
+    <Container ref={carouselRef} $isSticky={isSticky}>
       <Carousel>
         <SliderContainer $activeSlide={currentSlide}>
           <SliderItem $isActive={currentSlide === 0}>

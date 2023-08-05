@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import styled from "styled-components";
 import CarouselSlider from "./CarouselSlider";
+import useDetectSticky from "./useDetectSticky";
 
 const NavHeader = styled.header`
   margin: 0;
@@ -14,14 +16,27 @@ const NavHeader = styled.header`
 `;
 
 const ContentSection = styled.section`
-  height: 50vh;
   background-color: coral;
 `;
 
+const MainContainer = styled.main`
+  height: 200vh;
+  background-color: rgba(0, 0, 0, 0.5);
+`;
+
 const App = () => {
+  const headerRef = useRef(null);
+
+  // detects if carousel stuck below header
+  const { ref: carouselRef, isSticky } = useDetectSticky(undefined, {
+    threshold: [1],
+    root: null,
+    rootMargin: "-76px 0px 0px 0px",
+  });
+
   return (
-    <>
-      <NavHeader>NavHeader placeholder</NavHeader>
+    <MainContainer>
+      <NavHeader ref={headerRef}>NavHeader placeholder</NavHeader>
       <h5>Dummy title</h5>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -29,7 +44,7 @@ const App = () => {
         volutpat sed cras ornare. Semper feugiat nibh sed pulvinar proin gravida
         hendrerit.
       </p>
-      <CarouselSlider />
+      <CarouselSlider carouselRef={carouselRef} isSticky={isSticky} />
       <ContentSection>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Auctor eu augue ut
@@ -65,7 +80,7 @@ const App = () => {
         purus non enim. Euismod in pellentesque massa placerat duis ultricies
         lacus.
       </ContentSection>
-    </>
+    </MainContainer>
   );
 };
 

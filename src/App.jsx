@@ -20,7 +20,7 @@ const ContentSection = styled.section`
 `;
 
 const MainContainer = styled.main`
-  height: 200vh;
+  height: 150vh;
   background-color: rgba(0, 0, 0, 0.5);
 `;
 

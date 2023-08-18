@@ -57,19 +57,19 @@ const CarouselSlider = ({ carouselRef, isSticky }) => {
         <SliderContainer $activeSlide={currentSlide}>
           <SliderItem $isActive={currentSlide === 0}>
             <ImageWrapper>
-              <img src="https://placeholder.pics/svg/300x150" alt="item1" />
+              <img src="https://placehold.co/300x150" alt="item1" />
               <p>Item 1</p>
             </ImageWrapper>
           </SliderItem>
           <SliderItem $isActive={currentSlide === 1}>
             <ImageWrapper>
-              <img src="https://placeholder.pics/svg/350x200" alt="item2" />
+              <img src="https://placehold.co/350x200" alt="item2" />
               <p>Item 2</p>
             </ImageWrapper>
           </SliderItem>
           <SliderItem $isActive={currentSlide === 2}>
             <ImageWrapper>
-              <img src="https://placeholder.pics/svg/300x300" alt="item3" />
+              <img src="https://placehold.co/300x300" alt="item3" />
               <p>Item 3</p>
             </ImageWrapper>
           </SliderItem>
